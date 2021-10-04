@@ -1,0 +1,39 @@
+#+TITLE: embedded system bare metal programming course
+#+LANGUAGE: en
+#+AUTHOR: rileyrg
+#+EMAIL: rileyrg at g m x dot de
+
+#+LANGUAGE: en
+#+STARTUP: showall
+
+#+EXPORT_FILE_NAME: README.md
+#+OPTIONS: toc:8 num:nil
+
+#+category: embedded
+#+FILETAGS: :stm32:embedded:stm32f030r8:
+
+#+STARTUP: overview
+
+#+OPTIONS: toc:nil
+#+OPTIONS: ^:nil
+
+# don't export trees tagged with:
+#+EXCLUDE_TAGS: tasklist noexport broken
+# do not export any sections marked as tasks unless TODO or DONE
+#+OPTIONS: tasks:("TODO" "DONE")
+# do not include task keywords in export
+#+OPTIONS: todo:nil
+
+* Udemy Course
+https://www.udemy.com/course/embedded-systems-bare-metal-programming/learn/lecture/26702490#overview
+
+* ST Docs
+
+** reference manual
+[[file:stm32f030r8-reference-manual.pdf]]
+
+** datasheet
+[[file:stm32f030r8-datasheet.pdf]]
+
+** userguide
+[[file:nucleo-stm32f030r8-userguide.pdf]]
