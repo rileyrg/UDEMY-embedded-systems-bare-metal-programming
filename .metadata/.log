@@ -1,0 +1,18 @@
+!SESSION 2021-10-04 23:39:13.450 -----------------------------------------------
+eclipse.buildId=Version 1.7.0
+java.version=11.0.10
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-10-04 23:39:50.810
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-10-04 23:39:50.875
+!MESSAGE Log4j initialized with config file /home/rgr/Dropbox/homefiles/directories/development/education/Udemy/embedded-systems-bare-metal-programming/stm32f030r8/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-10-04 23:39:52.972
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-10-04 23:41:01.834
+!MESSAGE Indexed '0-led-toggle-addr' (3 sources, 53 headers) in 1.2 sec: 1,964 declarations; 2,809 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.042%)

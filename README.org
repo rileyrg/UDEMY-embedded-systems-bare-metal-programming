@@ -33,7 +33,64 @@ https://www.udemy.com/course/embedded-systems-bare-metal-programming/learn/lectu
 [[file:stm32f030r8-reference-manual.pdf]]
 
 ** datasheet
+:PROPERTIES:
+:ID:       3385b184-e5e1-4a8d-a3ee-a5816905e557
+:END:
 [[file:stm32f030r8-datasheet.pdf]]
 
 ** userguide
+:PROPERTIES:
+:ID:       3a8fe118-1ad1-430c-b037-7b0bb4bb0906
+:END:
 [[file:nucleo-stm32f030r8-userguide.pdf]]
+
+* [[file:0-led-toggle-addr/][0-led-toggle-addr]]
+
+** locate led
+
+[[https://www.udemy.com/course/embedded-systems-bare-metal-programming/learn/lecture/26702988#questions][video]]
+
+*** port and pin
+
+Need to reference [[id:3a8fe118-1ad1-430c-b037-7b0bb4bb0906][user guide]].
+
+#+begin_quote
+User LD2: the green LED is a user LED connected to ARDUINO ® signal D13 corresponding
+to STM32 I/O PA5 (pin 21)
+#+end_quote
+
+** defining address of modules
+
+[[https://www.udemy.com/course/embedded-systems-bare-metal-programming/learn/lecture/26702598#questions][video]]
+
+Refer to the [[id:3385b184-e5e1-4a8d-a3ee-a5816905e557][datasheet]].
+
+Search for memory mapping. Peripherals.
+
+#+begin_quote
+memory range : x4000 0000-0x4800 17ff
+#+end_quote
+
+#+begin_src c
+  #define PERIPH_BASE 0x40000000ul
+#+end_src
+
+Now need to look at the rehister boundary address tables.
+
+Here we see that the different peripherals are on different buses.
+The BLOCK DIAGRAM depicts these buses.
+
+#+begin_quote
+APB: Advanced Peripheral Bus
+AHB: Advanced High Performance Bus
+#+end_quote
+
+We see GPIO PORT A is connected to AHB.
+
+Below the memory map, you'll see a table depicting the boundary addresses.
+
+|------+---------------------------+------+------------|
+| Bus  | Boundary Address          | Size | Peripheral |
+|------+---------------------------+------+------------|
+| AHB2 | 0x4800 0000 - 0x4800 03FF | 1KB  | GPIOA      |
+|------+---------------------------+------+------------|
