@@ -94,6 +94,9 @@ Similar for RCC
 
 We want to create pointers to the registers needs to control these peripherals. We'll find in in the [reference manual](stm32f030r8-reference-manual.pdf).
 
+
+### register pointers
+
 Course says AHB1EN. No such thing for this board.
 
 > After each device reset, all peripheral clocks are disabled (except for the SRAM and Flash). Before using a peripheral you have to enable its clock in the RCC\_AHBENR, RCC\_APB2ENR or RCC\_APB1ENR register.
@@ -104,5 +107,30 @@ Course says AHB1EN. No such thing for this board.
 ...
 #define RCC_BASE (RCC_BUS_BASE + RCC_OFFSET)
 #define RCC_AHBEN_OFFSET 0x0014UL
-#define RCC_AHBEN_R (RCC_BASE+RCC_AHBEN_OFFSET)
+#define RCC_AHBENR (RCC_BASE+RCC_AHBEN_OFFSET)
+```
+
+Control clock for GPIOA
+
+> Bit 17 IOPAEN: I/O port A clock enable Set and cleared by software. 0: I/O port A clock disabled 1: I/O port A clock enabled
+
+```c
+#define RCC_AHBEN_GPIOAEN (1UL << 17)
+```
+
+
+### registers
+
+GPIO ports have at least two registers - direction register and data register.
+
+[Reference Manual](stm32f030r8-reference-manual.pdf) search for **moder**
+
+> 8.4.1 GPIO port mode register (GPIOx\_MODER) (x =A..D, F) Address offset:0x00 Reset values:
+>
+> -   0x2800 0000 for port A
+> -   0x0000 0000 for other ports
+
+```c
+#define GPIOA_MODE_OFFSET 0x0000UL
+#define GPIOA_MODER (GPIOA_BASE+GPOIA_MODE_OFFSET)
 ```
