@@ -178,6 +178,49 @@ Reset values:
 #+end_quote
 
 #+begin_src c
-  #define GPIOA_MODE_OFFSET 0x0000UL
-  #define GPIOA_MODER (GPIOA_BASE+GPOIA_MODE_OFFSET)
+  #define GPIO_MODER_OFFSET 0x0000UL
+  #define GPIOA_MODER (GPIOA_BASE+GPIO_MODER_OFFSET)
+#+end_src
+
+So what do we write to the GPIOA_MODER?
+
+#+begin_quote
+Bits 2y+1:2y MODERy[1:0]: Port x configuration bits (y = 0..15)
+These bits are written by software to configure the I/O mode.
+00: Input mode (reset state)
+01: General purpose output mode
+10: Alternate function mode
+11: Analog mode
+#+end_quote
+
+We want general output so bits 11:10 should be 0:1. BUT since we know the register
+was reset and the from this the reset values are 0
+
+#+begin_quote
+Address offset:0x00
+Reset values:
+0x2800 0000 for port A
+0x0000 0000 for other ports
+#+end_quote
+
+we can just set bit 10 to 1. But here we zero it anyway for fun
+#+begin_src c
+  /*
+   ,* (1UL<<10) set bit 10
+   ,* ~(1UL<<11) mask to clear bit 11
+   ,*/
+
+#+end_src
+
+we need to write to out put data register
+
+#+begin_quote
+GPIO port output data register (GPIOx_ODR) (x = A..D, F)
+Address offset: 0x14
+Reset value: 0x0000 0000
+#+end_quote
+
+#+begin_src c
+  #define ODR_OFFSET 0x14UL
+  #define GPIOA_ODR (GPIOA_BASE+ODR_OFFSET)
 #+end_src
