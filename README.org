@@ -79,7 +79,7 @@ memory range : x4000 0000-0x4800 17ff
   #define PERIPH_BASE 0x40000000ul
 #+end_src
 
-Now need to look at the rehister boundary address tables.
+Now need to look at the register boundary address tables.
 
 Here we see that the different peripherals are on different buses.
 The BLOCK DIAGRAM depicts these buses.
@@ -127,3 +127,24 @@ Similar for RCC
 
 We want to create pointers to the registers needs to control these peripherals.
 We'll find in in the [[file:stm32f030r8-reference-manual.pdf][reference manual]].
+
+Course says AHB1EN. No such thing for this board.
+
+#+begin_quote
+After each device reset, all peripheral clocks are disabled (except for the SRAM and Flash).
+Before using a peripheral you have to enable its clock in the RCC_AHBENR,
+RCC_APB2ENR or RCC_APB1ENR register.
+#+end_quote
+
+#+begin_quote
+7.4.6 AHB peripheral clock enable register (RCC_AHBENR)
+Address offset: 0x14
+Reset value: 0x0000 0014
+#+end_quote
+
+#+begin_src c
+  ...
+  #define RCC_BASE (RCC_BUS_BASE + RCC_OFFSET)
+  #define RCC_AHBEN_OFFSET 0x0014UL
+  #define RCC_AHBEN_R (RCC_BASE+RCC_AHBEN_OFFSET)
+#+end_src
