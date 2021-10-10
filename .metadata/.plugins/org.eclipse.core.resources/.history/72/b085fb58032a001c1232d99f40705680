@@ -34,15 +34,11 @@ int main(void)
      RCC_AHBENR |= GPIOA_EN;
 
      /* 2 set PA5 as output */
-     GPIOA_MODER |= (1U<<10); /* bit 10 to 1 */
-     GPIOA_MODER &=~(1U<<11); /* bit 11 to 0 */
+     GPIO_MODER |= (1U<<10); /* bit 10 to 1 */
+     GPIO_MODER &=~(1U<<11); /* bit 11 to 0 */
 
      while(1){
-          /* /\* set PA5 high *\/ */
-          /* GPIOA_ODR |= LED_PIN; */
-          /* toggle */
-          GPIOA_ODR ^= LED_PIN;
-          for(int i =0; i <= 100000; i++){
-          }
+          /* set PA5 high */
+          GPIOA_ODR |= LED_PIN;
      }
 }

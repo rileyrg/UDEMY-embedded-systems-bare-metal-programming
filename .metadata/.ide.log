@@ -295,3 +295,7 @@
 2021-10-04 23:41:00,993 [INFO] ApiDb:280 - User favorites MCUs=[]
 2021-10-04 23:41:00,994 [INFO] ApiDb:276 - Save user favorites file /home/rgr/.stm32cubeide/favorites.boards.txt: 0 item(s)
 2021-10-04 23:41:00,995 [INFO] ApiDb:280 - User favorites Boards=[]
+2021-10-10 21:49:46,706 [INFO] Activator:177 - 
+
+
+2021-10-10 21:49:46,709 [INFO] Activator:178 - !SESSION log4j initialized
