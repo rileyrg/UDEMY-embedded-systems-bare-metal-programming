@@ -1,2 +1,27 @@
+# Ignore everything
+*
+# Don't ignore directories, so we can recurse into them
+!*/
 
+#but ignore metadata
 .metadata/
+
+# Don't ignore .gitignore etc
+
+!.gitignore
+
+!makefile
+!Makefile
+
+!*.pdf
+
+!*.org
+!*.md
+
+!*.cpp
+!*.c
+!*.h
+
+!.lldbinit
+!.projectile
+!.dir-locals.el
